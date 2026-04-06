@@ -1,141 +1,889 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fayez Alshehri Goods Wholesalers Co LLC</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fayez Alshehri Goods Wholesalers Co LLC</title>
+  <meta
+    name="description"
+    content="Fayez Alshehri Goods Wholesalers Co LLC is a trusted wholesale supplier and business solutions partner based in Dubai, United Arab Emirates."
+  />
+  <style>
+    :root{
+      --bg:#0b1713;
+      --bg-2:#10211b;
+      --green:#173a2f;
+      --green-2:#1f4d3a;
+      --gold:#d4b37a;
+      --gold-soft:#ead8b0;
+      --text:#111827;
+      --muted:#667085;
+      --white:#ffffff;
+      --soft:#f6f4ef;
+      --line:#e7e2d7;
+      --shadow:0 18px 40px rgba(0,0,0,.08);
+      --radius:20px;
+      --max:1200px;
+    }
 
-<style>
-body{margin:0;font-family:Arial;background:#fff;color:#111}
-.container{max-width:1200px;margin:auto;padding:20px}
-.hero{background:#0f241c;color:#fff;padding:80px 20px}
-h1{font-size:42px}
-h2{color:#0f241c}
-.btn{padding:12px 20px;background:#1f4d3a;color:#fff;border-radius:8px;margin:5px;display:inline-block}
-.section{padding:60px 20px}
-.card{background:#f4f6f5;padding:20px;border-radius:12px;margin:10px 0}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-img{width:100%;border-radius:12px}
-.footer{background:#08130f;color:#fff;padding:30px}
-@media(max-width:900px){.grid{grid-template-columns:1fr}}
-</style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      background:#fff;
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    img{display:block;width:100%;height:auto}
 
+    .container{
+      width:min(calc(100% - 32px), var(--max));
+      margin:0 auto;
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:rgba(11,23,19,.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      color:#fff;
+    }
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:16px 0;
+    }
+    .brand small{
+      display:block;
+      color:var(--gold-soft);
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.28em;
+      margin-bottom:4px;
+    }
+    .brand strong{
+      display:block;
+      font-size:18px;
+      line-height:1.3;
+    }
+
+    .nav{
+      display:flex;
+      gap:24px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .nav a{
+      font-size:14px;
+      color:#f3f4f6;
+    }
+    .nav a:hover{color:var(--gold-soft)}
+
+    .hero{
+      position:relative;
+      color:#fff;
+      background:
+        linear-gradient(90deg, rgba(11,23,19,.90), rgba(11,23,19,.72)),
+        url("https://images.unsplash.com/photo-1586528116493-6d7f76f36e16?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:36px;
+      align-items:center;
+      min-height:84vh;
+      padding:72px 0;
+    }
+    .eyebrow{
+      display:inline-block;
+      color:var(--gold-soft);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.32em;
+      font-weight:700;
+      margin-bottom:16px;
+    }
+    h1{
+      font-size:58px;
+      line-height:1.05;
+      margin-bottom:18px;
+      max-width:760px;
+    }
+    .lead{
+      font-size:19px;
+      color:#e5e7eb;
+      max-width:700px;
+      margin-bottom:28px;
+    }
+
+    .btns{display:flex;gap:14px;flex-wrap:wrap}
+    .btn{
+      display:inline-block;
+      padding:14px 22px;
+      border-radius:12px;
+      font-size:14px;
+      font-weight:700;
+      transition:.2s ease;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{
+      background:linear-gradient(135deg, var(--gold-soft), var(--gold));
+      color:#1b1b1b;
+    }
+    .btn-secondary{
+      border:1px solid rgba(255,255,255,.28);
+      color:#fff;
+      background:rgba(255,255,255,.05);
+    }
+
+    .hero-cards{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+    }
+    .hero-card{
+      padding:20px;
+      border-radius:18px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.08);
+      backdrop-filter:blur(8px);
+    }
+    .hero-card small{
+      display:block;
+      color:var(--gold-soft);
+      text-transform:uppercase;
+      letter-spacing:.22em;
+      font-size:11px;
+      margin-bottom:8px;
+    }
+    .hero-card strong{
+      font-size:18px;
+      line-height:1.4;
+    }
+
+    .trust-strip{
+      background:#fff;
+      border-bottom:1px solid var(--line);
+    }
+    .trust-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+      padding:22px 0;
+    }
+    .trust-item{
+      background:var(--soft);
+      border:1px solid var(--line);
+      border-radius:14px;
+      text-align:center;
+      padding:16px;
+      font-weight:700;
+      font-size:14px;
+    }
+
+    section{padding:90px 0}
+    .section-title{
+      max-width:760px;
+      margin-bottom:30px;
+    }
+    .section-title h2{
+      font-size:42px;
+      line-height:1.14;
+      margin:10px 0 14px;
+      color:#111827;
+    }
+    .section-title p{
+      color:var(--muted);
+      font-size:18px;
+    }
+
+    .about-grid,
+    .solutions-grid,
+    .contact-grid,
+    .map-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:38px;
+      align-items:center;
+    }
+
+    .image-card{
+      overflow:hidden;
+      border-radius:28px;
+      box-shadow:var(--shadow);
+    }
+    .image-card img{
+      height:100%;
+      object-fit:cover;
+    }
+
+    .copy p{
+      font-size:18px;
+      color:var(--muted);
+      margin-bottom:18px;
+    }
+
+    .soft{background:var(--soft)}
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+      margin-top:34px;
+    }
+    .card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      transition:.2s ease;
+    }
+    .card:hover{transform:translateY(-4px)}
+    .card-image{height:220px;overflow:hidden}
+    .card-image img{height:100%;object-fit:cover}
+    .card-body{padding:22px}
+    .card-body h3{
+      font-size:22px;
+      margin-bottom:10px;
+    }
+    .card-body p{color:var(--muted)}
+
+    .why-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:38px;
+      align-items:start;
+    }
+    .why-list{
+      display:grid;
+      gap:14px;
+      margin-top:24px;
+    }
+    .why-item{
+      display:flex;
+      gap:14px;
+      padding:18px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:#fff;
+      box-shadow:0 6px 18px rgba(0,0,0,.04);
+    }
+    .dot{
+      width:12px;
+      height:12px;
+      margin-top:8px;
+      border-radius:50%;
+      background:var(--gold);
+      flex-shrink:0;
+    }
+
+    .dark-box{
+      background:linear-gradient(180deg, var(--bg), var(--bg-2));
+      color:#fff;
+      border-radius:28px;
+      padding:34px;
+      box-shadow:var(--shadow);
+    }
+    .dark-box h3{
+      font-size:30px;
+      margin:10px 0 16px;
+    }
+    .serve-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      margin-top:24px;
+    }
+    .serve-grid div,
+    .dark-points div{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;
+      padding:16px;
+    }
+
+    .solutions{
+      background:linear-gradient(180deg, var(--bg), var(--bg-2));
+      color:#fff;
+    }
+    .solutions .section-title h2,
+    .solutions .section-title p{
+      color:#fff;
+    }
+    .dark-points{
+      display:grid;
+      gap:14px;
+    }
+
+    .cta-box{
+      background:linear-gradient(135deg, #f9f6ee, #f2ece0);
+      border:1px solid var(--line);
+      border-radius:30px;
+      padding:48px;
+      box-shadow:var(--shadow);
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:30px;
+    }
+    .cta-box h2{
+      font-size:40px;
+      line-height:1.12;
+      margin-bottom:12px;
+    }
+    .cta-box p{
+      color:var(--muted);
+      font-size:18px;
+      max-width:760px;
+    }
+
+    .testimonials{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+      margin-top:32px;
+    }
+    .testimonial{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+    .testimonial p{
+      color:var(--muted);
+      margin-bottom:14px;
+    }
+    .testimonial strong{
+      font-size:14px;
+      color:#111827;
+    }
+
+    .contact-section{
+      background:#08130f;
+      color:#fff;
+    }
+    .contact-card,
+    .map-card{
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:24px;
+      padding:28px;
+    }
+    .contact-card small,
+    .partnership-box small,
+    .map-card small{
+      display:block;
+      color:var(--gold-soft);
+      text-transform:uppercase;
+      letter-spacing:.25em;
+      font-size:11px;
+      margin-bottom:10px;
+    }
+    .contact-card h3,
+    .map-card h3{
+      font-size:28px;
+      margin-bottom:18px;
+    }
+    .contact-card p,
+    .map-card p{
+      color:#d1d5db;
+      margin-bottom:10px;
+      font-size:17px;
+    }
+
+    .partnership-box{
+      margin-top:22px;
+      padding:28px;
+      border-radius:24px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .partnership-box p{
+      color:#d1d5db;
+      font-size:18px;
+      max-width:900px;
+    }
+
+    .map-embed{
+      overflow:hidden;
+      border-radius:20px;
+      min-height:360px;
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .map-embed iframe{
+      width:100%;
+      height:360px;
+      border:0;
+      display:block;
+    }
+
+    .footer{
+      background:#06100c;
+      color:#cbd5e1;
+      padding:42px 0 28px;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr .95fr;
+      gap:28px;
+    }
+    .footer h4{
+      color:#fff;
+      font-size:18px;
+      margin-bottom:10px;
+    }
+    .footer small{
+      display:block;
+      color:var(--gold-soft);
+      text-transform:uppercase;
+      letter-spacing:.24em;
+      margin-bottom:12px;
+      font-size:11px;
+    }
+    .footer p,.footer a{
+      color:#94a3b8;
+      font-size:15px;
+      margin-bottom:8px;
+    }
+    .copyright{
+      margin-top:26px;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:#64748b;
+      font-size:14px;
+    }
+
+    .float-btn{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      z-index:999;
+      background:linear-gradient(135deg, var(--gold-soft), var(--gold));
+      color:#1a1a1a;
+      padding:14px 18px;
+      border-radius:999px;
+      font-weight:700;
+      box-shadow:0 12px 28px rgba(0,0,0,.18);
+    }
+
+    @media (max-width:980px){
+      .hero-grid,
+      .about-grid,
+      .solutions-grid,
+      .why-grid,
+      .contact-grid,
+      .map-grid,
+      .footer-grid,
+      .cards,
+      .trust-grid,
+      .hero-cards,
+      .serve-grid,
+      .testimonials{
+        grid-template-columns:1fr;
+      }
+      h1{font-size:40px}
+      .section-title h2,
+      .cta-box h2{font-size:32px}
+      .cta-box{
+        padding:32px;
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .topbar-inner{
+        flex-wrap:wrap;
+      }
+      .nav{
+        width:100%;
+        justify-content:flex-start;
+      }
+    }
+
+    @media (max-width:640px){
+      .hero-grid{min-height:auto;padding:58px 0}
+      h1{font-size:34px}
+      .lead,
+      .section-title p,
+      .copy p,
+      .cta-box p,
+      .partnership-box p{font-size:16px}
+      section{padding:70px 0}
+    }
+  </style>
 </head>
 <body>
 
-<!-- HERO -->
-<div class="hero">
-<div class="container">
-<h1>Trusted Wholesale & Supply Partner in UAE</h1>
-<p>Delivering reliable products, competitive pricing, and trusted business partnerships across Dubai and the UAE.</p>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <small>Dubai, UAE</small>
+        <strong>Fayez Alshehri Goods Wholesalers Co LLC</strong>
+      </div>
 
-<a class="btn" href="#contact">Request a Quote</a>
-<a class="btn" href="https://wa.me/971508392291">WhatsApp Managing Director</a>
-</div>
-</div>
+      <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-<!-- ABOUT -->
-<div class="section container">
-<h2>About Us</h2>
-<img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1200&q=80">
-<p>
-Fayez Alshehri Goods Wholesalers Co LLC is a trusted wholesale supplier based in Dubai.
-We support businesses across the UAE with reliable supply, strong pricing, and professional service.
-</p>
-</div>
+      <a class="btn btn-secondary" href="https://wa.me/971508392291" target="_blank">WhatsApp</a>
+    </div>
+  </header>
 
-<!-- PRODUCTS -->
-<div class="section container">
-<h2>Our Categories</h2>
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Trusted wholesale & supply partner</span>
+          <h1>Reliable Product Supply for Businesses Across the UAE</h1>
+          <p class="lead">
+            Fayez Alshehri Goods Wholesalers Co LLC delivers dependable supply solutions,
+            competitive pricing, and professional support for retailers, contractors,
+            commercial buyers, and project partners.
+          </p>
 
-<div class="grid">
+          <div class="btns">
+            <a class="btn btn-primary" href="#contact">Request a Quote</a>
+            <a class="btn btn-secondary" href="https://wa.me/971508392291" target="_blank">WhatsApp Now</a>
+          </div>
+        </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d">
-<h3>Business & General Supplies</h3>
-</div>
+        <div class="hero-cards">
+          <div class="hero-card">
+            <small>Assurance</small>
+            <strong>UAE-Based Company</strong>
+          </div>
+          <div class="hero-card">
+            <small>Assurance</small>
+            <strong>Reliable Supply Chain</strong>
+          </div>
+          <div class="hero-card">
+            <small>Assurance</small>
+            <strong>Competitive Wholesale Pricing</strong>
+          </div>
+          <div class="hero-card">
+            <small>Assurance</small>
+            <strong>Serving Businesses Across UAE</strong>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1556911220-bff31c812dba">
-<h3>Kitchen & Catering Supplies</h3>
-</div>
+    <div class="trust-strip">
+      <div class="container trust-grid">
+        <div class="trust-item">UAE-Based Company</div>
+        <div class="trust-item">Reliable Supply Chain</div>
+        <div class="trust-item">Competitive Wholesale Pricing</div>
+        <div class="trust-item">Serving Businesses Across UAE</div>
+      </div>
+    </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952">
-<h3>Industrial Cleaning Solutions</h3>
-</div>
+    <section id="about">
+      <div class="container about-grid">
+        <div class="copy">
+          <div class="section-title">
+            <span class="eyebrow" style="color:#1f4d3a;">About us</span>
+            <h2>A Reliable Partner for Business Supply Needs</h2>
+            <p>
+              Based in Dubai, United Arab Emirates, we support businesses across the UAE with dependable sourcing,
+              responsive communication, and long-term partnership value.
+            </p>
+          </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
-<h3>Electrical & Utility Products</h3>
-</div>
+          <p>
+            Our focus is not only on supply, but on creating business confidence through professionalism,
+            consistency, and trusted service.
+          </p>
+          <p>
+            We serve commercial buyers, retailers, restaurants, contractors, and project teams who need
+            quality products backed by reliable support.
+          </p>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd">
-<h3>Building Materials</h3>
-</div>
+          <a class="btn btn-primary" href="#products">View Product Categories</a>
+        </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85">
-<h3>Interior & Fit-Out Supplies</h3>
-</div>
+        <div class="image-card">
+          <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1400&q=80" alt="Warehouse and supply support">
+        </div>
+      </div>
+    </section>
 
-</div>
-</div>
+    <section class="soft" id="products">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow" style="color:#1f4d3a;">What we offer</span>
+          <h2>Wholesale Categories Built for Business Demand</h2>
+          <p>
+            A focused product portfolio designed for practical business needs,
+            commercial supply, and project support.
+          </p>
+        </div>
 
-<!-- WHY -->
-<div class="section container">
-<h2>Why Choose Us</h2>
+        <div class="cards">
+          <article class="card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80" alt="Business and general supplies">
+            </div>
+            <div class="card-body">
+              <h3>Business & General Supplies</h3>
+              <p>Essential wholesale products for retail, office, and daily commercial operations.</p>
+            </div>
+          </article>
 
-<div class="card">✔ Consistent stock availability</div>
-<div class="card">✔ Competitive bulk pricing</div>
-<div class="card">✔ Fast and professional communication</div>
-<div class="card">✔ Trusted supplier network</div>
-<div class="card">✔ UAE business experience</div>
+          <article class="card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=80" alt="Kitchen and catering supplies">
+            </div>
+            <div class="card-body">
+              <h3>Kitchen & Catering Supplies</h3>
+              <p>Reliable supply solutions for restaurants, cafeterias, caterers, and food service businesses.</p>
+            </div>
+          </article>
 
-</div>
+          <article class="card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80" alt="Industrial cleaning solutions">
+            </div>
+            <div class="card-body">
+              <h3>Industrial Cleaning Solutions</h3>
+              <p>Professional cleaning products and hygiene solutions for facilities and business environments.</p>
+            </div>
+          </article>
 
-<!-- SOLUTIONS -->
-<div class="section" style="background:#0f241c;color:white;">
-<div class="container">
-<h2 style="color:white;">More Than Supply — We Deliver Solutions</h2>
+          <article class="card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="Electrical and utility products">
+            </div>
+            <div class="card-body">
+              <h3>Electrical & Utility Products</h3>
+              <p>Practical electrical items and utility essentials for maintenance, operations, and project needs.</p>
+            </div>
+          </article>
 
-<p>
-We connect our clients with trusted interior designers across UAE through our affiliated network.
-</p>
+          <article class="card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80" alt="Building materials">
+            </div>
+            <div class="card-body">
+              <h3>Building Materials</h3>
+              <p>Dependable supply support for construction, renovation, and maintenance requirements.</p>
+            </div>
+          </article>
 
-</div>
-</div>
+          <article class="card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="Interior and fit-out supplies">
+            </div>
+            <div class="card-body">
+              <h3>Interior & Fit-Out Supplies</h3>
+              <p>Quality materials and product support for interior design, fit-out, and finishing projects across the UAE.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<!-- CONTACT -->
-<div class="section container" id="contact">
+    <section>
+      <div class="container why-grid">
+        <div>
+          <div class="section-title">
+            <span class="eyebrow" style="color:#1f4d3a;">Why choose us</span>
+            <h2>Built Around Reliability, Value, and Business Trust</h2>
+          </div>
 
-<h2>Contact Us</h2>
+          <div class="why-list">
+            <div class="why-item"><span class="dot"></span><div>Consistent stock availability</div></div>
+            <div class="why-item"><span class="dot"></span><div>Competitive bulk pricing</div></div>
+            <div class="why-item"><span class="dot"></span><div>Fast and professional communication</div></div>
+            <div class="why-item"><span class="dot"></span><div>Trusted supplier network</div></div>
+            <div class="why-item"><span class="dot"></span><div>Reliable business support across UAE</div></div>
+            <div class="why-item"><span class="dot"></span><div>Access to affiliated interior design partnerships</div></div>
+          </div>
+        </div>
 
-<h3>Managing Director</h3>
-<p><strong>Fayez Mohamed Alshehri</strong></p>
-<p>💬 WhatsApp (UAE): +971 50 839 2291</p>
-<p>📞 Call / SMS / WhatsApp (KSA): +966 50 733 6603</p>
+        <div class="dark-box">
+          <span class="eyebrow">Who we serve</span>
+          <h3>Supporting Diverse Business Sectors</h3>
+          <div class="serve-grid">
+            <div>Retail Shops</div>
+            <div>Supermarkets</div>
+            <div>Restaurants & Cafés</div>
+            <div>Commercial Buyers</div>
+            <div>Contractors</div>
+            <div>Interior Design Projects</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<h3 style="margin-top:30px;">Interior Design Connections</h3>
-<p><strong>Dedicated Line</strong></p>
-<p>📞 / 💬 WhatsApp: +971 58 592 5075</p>
+    <section class="solutions">
+      <div class="container solutions-grid">
+        <div>
+          <div class="section-title">
+            <span class="eyebrow">Business solutions</span>
+            <h2>More Than Supply — We Deliver Connected Solutions</h2>
+            <p>
+              Beyond product sourcing and wholesale supply, we help connect clients with trusted
+              and professional interior designers across the UAE through our affiliated network.
+            </p>
+          </div>
+        </div>
 
-</div>
+        <div class="dark-box">
+          <div class="dark-points">
+            <div>Project-oriented supply support</div>
+            <div>Affiliated interior design network</div>
+            <div>Commercial and residential fit-out alignment</div>
+            <div>Reliable contact and quotation flow</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<!-- FOOTER -->
-<div class="footer">
-<div class="container">
+    <section>
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <span class="eyebrow" style="color:#1f4d3a;">Partnership call to action</span>
+            <h2>Start Your Business Supply Partnership Today</h2>
+            <p>
+              Contact our team for quotations, supply requirements, and business inquiries across Dubai and the UAE.
+            </p>
+          </div>
 
-<p><strong>Fayez Alshehri Goods Wholesalers Co LLC</strong></p>
-<p>Dubai, UAE</p>
+          <div class="btns">
+            <a class="btn btn-primary" href="#contact">Request a Quote</a>
+            <a class="btn btn-secondary" style="background:#173a2f;color:#fff;border:none;" href="https://wa.me/971508392291" target="_blank">WhatsApp Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<p>WhatsApp: +971 50 839 2291</p>
-<p>Call/SMS: +966 50 733 6603</p>
-<p>Interior Line: +971 58 592 5075</p>
+    <section class="soft">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow" style="color:#1f4d3a;">Trusted by businesses</span>
+          <h2>Professional, Reliable, and Business-Focused</h2>
+          <p>
+            Presenting your company with trust, consistency, and a clear commercial identity.
+          </p>
+        </div>
 
-</div>
-</div>
+        <div class="testimonials">
+          <div class="testimonial">
+            <p>“Reliable communication and a professional way of handling supply requirements.”</p>
+            <strong>Business Client, UAE</strong>
+          </div>
+          <div class="testimonial">
+            <p>“A dependable wholesale partner with practical support and responsive service.”</p>
+            <strong>Commercial Buyer, Dubai</strong>
+          </div>
+          <div class="testimonial">
+            <p>“Strong business approach, clear quotations, and confidence in project support.”</p>
+            <strong>Project Partner, UAE</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Contact us</span>
+          <h2 style="color:#fff;">Professional Contact Channels for Business Inquiries</h2>
+          <p style="color:#d1d5db;">
+            Reach out for business inquiries, quotation requests, and interior design partnership coordination.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <small>Managing Director</small>
+            <h3>Fayez Mohamed Alshehri</h3>
+            <p><strong>WhatsApp (UAE):</strong> +971 50 839 2291</p>
+            <p><strong>Call / SMS / WhatsApp (KSA):</strong> +966 50 733 6603</p>
+            <p><strong>Address:</strong><br>B36101 Dubai Investment Property<br>Al Quoz 3<br>(Main Office)</p>
+          </div>
+
+          <div class="contact-card">
+            <small>Interior Design Connections</small>
+            <h3>Dedicated Line</h3>
+            <p><strong>Phone / WhatsApp:</strong> +971 58 592 5075</p>
+            <p><strong>Purpose:</strong> For trusted and professional interior designer connections across the UAE</p>
+            <p><strong>Address:</strong><br>B36101 Dubai Investment Property<br>Al Quoz 3<br>(Main Office)</p>
+          </div>
+        </div>
+
+        <div class="partnership-box">
+          <small>Interior design partnerships</small>
+          <p>
+            We connect clients with trusted and professional interior designers across the UAE through our
+            affiliated network, supporting commercial and residential project needs with confidence and professionalism.
+          </p>
+        </div>
+
+        <div style="margin-top:22px;" class="map-grid">
+          <div class="map-card">
+            <small>Office location</small>
+            <h3>Main Office</h3>
+            <p><strong>Address:</strong><br>B36101 Dubai Investment Property<br>Al Quoz 3<br>(Main Office)</p>
+            <p><strong>City:</strong> Dubai, United Arab Emirates</p>
+          </div>
+
+          <div class="map-embed">
+            <iframe
+              src="https://www.google.com/maps?q=B36101%20Dubai%20Investment%20Property%20Al%20Quoz%203%20Dubai&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Fayez Alshehri Goods Wholesalers Co LLC</h4>
+          <p>
+            Trusted wholesale supplier and business solutions partner serving businesses across Dubai and the UAE.
+          </p>
+        </div>
+
+        <div>
+          <small>Quick links</small>
+          <p><a href="#home">Home</a></p>
+          <p><a href="#about">About Us</a></p>
+          <p><a href="#products">Products</a></p>
+          <p><a href="#contact">Contact</a></p>
+        </div>
+
+        <div>
+          <small>Contact</small>
+          <p>Address:<br>B36101 Dubai Investment Property<br>Al Quoz 3<br>(Main Office)</p>
+          <p>Managing Director WhatsApp: +971 50 839 2291</p>
+          <p>Call / SMS / WhatsApp: +966 50 733 6603</p>
+          <p>Interior Design Connections: +971 58 592 5075</p>
+        </div>
+      </div>
+
+      <div class="copyright">
+        © 2025 Fayez Alshehri Goods Wholesalers Co LLC. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <a class="float-btn" href="https://wa.me/971508392291" target="_blank">WhatsApp Us</a>
 
 </body>
 </html>
