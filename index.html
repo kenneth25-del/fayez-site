@@ -58,6 +58,19 @@
       gap:20px;
       padding:16px 0;
     }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .brand img{
+      width:60px;
+      max-width:60px;
+      height:auto;
+      flex-shrink:0;
+      display:block;
+    }
     .brand small{
       display:block;
       color:var(--gold-soft);
@@ -220,8 +233,6 @@
     .image-card img{
       height:100%;
       object-fit:cover;
-
-      
     }
 
     .copy p{
@@ -516,6 +527,16 @@
       .cta-box p,
       .partnership-box p{font-size:16px}
       section{padding:70px 0}
+      .brand img{
+        width:50px;
+        max-width:50px;
+      }
+      .brand strong{
+        font-size:16px;
+      }
+      .brand small{
+        font-size:10px;
+      }
     }
   </style>
 </head>
@@ -524,10 +545,13 @@
   <header class="topbar">
     <div class="container topbar-inner">
       <div class="brand">
-  <img src="./logo.png" alt="Fayez Alshehri Goods Wholesalers logo" style="width:70px;height:auto;margin-bottom:6px;">
-  <small>Dubai, UAE</small>
-  <strong>Fayez Alshehri Goods Wholesalers Co LLC</strong>
-</div>
+        <img src="./logo.png" alt="Fayez Alshehri Goods Wholesalers logo">
+        <div>
+          <small>Dubai, UAE</small>
+          <strong>Fayez Alshehri Goods Wholesalers Co LLC</strong>
+        </div>
+      </div>
+
       <nav class="nav">
         <a href="#home">Home</a>
         <a href="#about">About Us</a>
